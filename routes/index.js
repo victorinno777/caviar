@@ -5,8 +5,10 @@ const cors = require("cors");
 const app = express();
 const puppeteer = require ('puppeteer');
 //const asyncRouter = require('async-express-router');
-const AsyncRouter = require('express-async-router').AsyncRouter;
-const router = AsyncRouter();
+//const AsyncRouter = require('express-async-router').AsyncRouter;
+//const router = AsyncRouter();
+const Router = require('express-promise-router');
+const router = new Router();
 
 async function getData() {
 
@@ -87,11 +89,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/fetch', cors(corsOptions), function (req, res) {
+router.post('/fetch', async function (req, res) {
 	try {
 		const result = await getData();
-		//res.json(result);
-		res.send(typeof(result));
+		res.json(result);
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
