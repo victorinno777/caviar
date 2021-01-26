@@ -104,7 +104,7 @@ app.post('/fetch', cors(corsOptions), async function (req, res) {
 	
 	try {
 		const result = await getData();
-		res.json(typeof(result));
+		res.json(result);
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
