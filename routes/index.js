@@ -68,7 +68,7 @@ router.use(bodyParser.json());
 router.use(cors());
 app.use(cors());
 
-asyncRouter(app);
+//asyncRouter(app);
 //const routes = require('./path/to/routes.js');
 //app.use(routes)
 
