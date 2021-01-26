@@ -99,9 +99,10 @@ var corsOptions = {
 }, 5000));*/
 
 router.post('/fetch', cors(corsOptions), async function (req, res) {
-	req.setTimeout(10000);
+	
 	try {
 		const result = await getData();
+		req.setTimeout(10000);
 		res.json(typeof(result));
 	} catch (e) {
 		res.end(e.message || e.toString());
