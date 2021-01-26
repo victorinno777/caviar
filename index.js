@@ -1,4 +1,5 @@
 const puppeteer = require ('puppeteer');
+const port = process.env.PORT || 3000;
 
 async function getData() {
 
@@ -60,7 +61,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-console.log('post ' + post);
+console.log('port ' + port);
 
 app.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -70,7 +71,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-	console.log('post ' + post);
+	console.log('port ' + port);
 	res.send('hello');
 });
 
@@ -83,8 +84,8 @@ app.post('/fetch', async function (req, res) {
 	}
 });
 
-app.listen(3001,() => {
-	console.log("Server started on PORT 3001");
+app.listen(port,() => {
+	console.log("Server started on PORT " + port);
 })
 
 //module.exports = app;
