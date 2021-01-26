@@ -84,7 +84,7 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
 		//res.json(result);
-		res.send('dada');
+		res.send('dadad');
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
