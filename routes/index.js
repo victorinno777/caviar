@@ -83,8 +83,8 @@ router.get('/', function(req, res, next) {
 router.post('/fetch', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
-		console.log('post');
-		res.json(result);
+		//res.json(result);
+		res.send('dada');
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
