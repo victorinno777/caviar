@@ -60,6 +60,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+console.log('post ' + post);
+
 app.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -68,6 +70,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
+	console.log('post ' + post);
 	res.send('hello');
 });
 
@@ -84,4 +87,4 @@ app.listen(3001,() => {
 	console.log("Server started on PORT 3001");
 })
 
-module.exports = app;
+//module.exports = app;
