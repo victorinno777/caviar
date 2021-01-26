@@ -4,6 +4,8 @@ const cors = require("cors");
 const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
+
+const port = process.env.PORT || 3000;
 //const asyncRouter = require('async-express-router');
 //const AsyncRouter = require('express-async-router').AsyncRouter;
 //const router = AsyncRouter();
@@ -127,4 +129,5 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 });*/
 
 //module.exports = app;
+app.listen(port, () => console.log(port));
 
