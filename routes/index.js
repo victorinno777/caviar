@@ -95,4 +95,4 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });
 
-module.exports = finalRouter
+module.exports = router
