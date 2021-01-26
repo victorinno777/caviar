@@ -72,7 +72,7 @@ app.use(function (req, res, next) {
 
 app.get('/', function (req, res) {
 	console.log('port ' + port);
-	res.send(port);
+	res.sendfile('index.html');
 });
 
 app.post('/fetch', async function (req, res) {
