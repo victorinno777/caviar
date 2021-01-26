@@ -61,6 +61,7 @@ async function getData() {
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 router.use(cors());
+app.use(cors());
 
 router.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -69,12 +70,17 @@ router.use(function (req, res, next) {
 	next();
 });
 
+var corsOptions = {
+  origin: 'http://localhost:3000/',
+  optionsSuccessStatus: 200
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/fetch', async function (req, res) {
+router.post('/fetch', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
 		res.json(result);
