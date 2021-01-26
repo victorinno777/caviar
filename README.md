@@ -1,4 +1,4 @@
-﻿DESHEVA-GRECHA is web app for parsing sites to search buckwheats.
+﻿<a>DESHEVA-GRECHA</a> is web app for parsing sites to search buckwheats.
 It contains two parts - server and client. PAAS Heroku is used for deploying both of them.
 
 SERVER:
