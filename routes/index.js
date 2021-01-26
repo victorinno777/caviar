@@ -4,7 +4,7 @@ const cors = require("cors");
 const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
-const asyncRouter = require('async-express-router');
+//const asyncRouter = require('async-express-router');
 
 async function getData() {
 
@@ -64,9 +64,9 @@ router.use(bodyParser.json());
 router.use(cors());
 app.use(cors());
 
-asyncRouter(app);
-const routes = require('./path/to/routes.js');
-app.use(routes);
+//asyncRouter(app);
+//const routes = require('./path/to/routes.js');
+//app.use(routes)
 
 router.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -95,4 +95,7 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });
 
-module.exports = router;
+Promise(function(resolve, reject) {
+	finalRouter = await router;
+})
+.then(module.exports = finalRouter)
