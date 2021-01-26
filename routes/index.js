@@ -4,6 +4,7 @@ const cors = require("cors");
 const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
+const asyncRouter = require('async-express-router');
 
 async function getData() {
 
@@ -63,6 +64,10 @@ router.use(bodyParser.json());
 router.use(cors());
 app.use(cors());
 
+asyncRouter(app);
+const routes = require('./path/to/routes.js');
+app.use(routes);
+
 router.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header("Access-Control-Allow-Methods", "GET, POST");
@@ -76,7 +81,7 @@ var corsOptions = {
 };
 
 /* GET home page. */
-app.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
