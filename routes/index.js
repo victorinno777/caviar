@@ -85,9 +85,9 @@ var corsOptions = {
 };
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
+});*/
 
 /*router.post('/fetch', cors(corsOptions), setTimeout(async function (req, res) {
 	try {
@@ -107,7 +107,7 @@ router.get('/', function(req, res, next) {
 	}
 });*/
 
-app.get('/fetch', cors(corsOptions), async function (req, res) {
+router.get('/', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
 		res.json(typeof(result));
@@ -116,7 +116,7 @@ app.get('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });
 
-app.post('/fetch', cors(corsOptions), async function (req, res) {
+router.post('/fetch', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
 		res.json(typeof(result));
@@ -125,4 +125,4 @@ app.post('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });
 
-module.exports = app
+module.exports = router
