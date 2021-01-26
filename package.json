@@ -21,7 +21,7 @@
     "node-gyp": "^7.1.2"
   },
   "scripts": {
-    "start": "./bin/www"
+    "start": "node index"
   },
   "engines": {
     "node": "15.x",
