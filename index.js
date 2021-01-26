@@ -52,7 +52,7 @@ async function getData() {
 		console.error(err);
 	});
 }
-
+console.log('server');
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -79,6 +79,6 @@ app.post('/fetch', async function (req, res) {
 	}
 });
 
-app.listen(3001,() => {
+/*app.listen(3001,() => {
 	console.log("Server started on PORT 3001");
-})
+})*/
