@@ -8,7 +8,7 @@
 			//submit").click(function(){
 			  //ser=$("#user").val();
 			  //pass=$("#password").val();
-			  /*$.post("http://localhost:3000/name",{name: name}, function(data){
+			  /*$.post("https://desheva-grecha-server.herokuapp.com/fetch",{name: name}, function(data){
 				if(data === 'yes') {
 					alert("login success");
 				  }
@@ -49,7 +49,7 @@
 		}
 
 		function req() {
-			$.post("https://desheva-grecha.herokuapp.com/name", {name: 'name'}, function(fetched){
+			$.post("https://desheva-grecha-server.herokuapp.com/fetch", {}, function(fetched){
             //if(fetched) {
 				//console.log(fetched);
 				var objData = JSON.parse(fetched);
