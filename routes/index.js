@@ -1,14 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-//const router = express.Router();
+const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
 //const asyncRouter = require('async-express-router');
 //const AsyncRouter = require('express-async-router').AsyncRouter;
 //const router = AsyncRouter();
-const Router = require('express-promise-router');
-const router = new Router();
+//const Router = require('express-promise-router');
+//const router = new Router();
 
 async function getData() {
 
@@ -99,6 +99,7 @@ var corsOptions = {
 }, 5000));*/
 
 router.post('/fetch', cors(corsOptions), async function (req, res) {
+	req.setTimeout(10000);
 	try {
 		const result = await getData();
 		res.json(typeof(result));
@@ -124,8 +125,6 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 		res.end(e.message || e.toString());
 	}
 });*/
-function send() {
-	module.exports = router;
-}
-setTimeout(10000, function(){send()});
+
+module.exports = router;
 
