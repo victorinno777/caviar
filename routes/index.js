@@ -88,6 +88,6 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 });
 
 Promise(function(resolve, reject) {
-	finalRouter = await router;
+	module.exports = await router;
 })
-.then(module.exports = finalRouter)
+.then(null)
