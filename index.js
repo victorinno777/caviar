@@ -1,15 +1,11 @@
 const puppeteer = require ('puppeteer');
-const port = process.env.PORT || 3000;
 
 async function getData() {
 
 	return puppeteer
 	.launch ({
 		args: [
-			'--no-sandbox',
-			//"--single-process",
-			//"--no-zygote",
-			//'--disable-setuid-sandbox'
+			'--no-sandbox'
 		]
 	})
 	.then (async browser => {
@@ -53,7 +49,7 @@ async function getData() {
 		console.error(err);
 	});
 }
-console.log('server');
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -71,6 +67,10 @@ app.use(function (req, res, next) {
 	next();
 });
 
+app.get('/', function (req, res) {
+	res.send('hello');
+});
+
 app.post('/fetch', async function (req, res) {
 	try {
 		const result = await getData();
@@ -80,6 +80,8 @@ app.post('/fetch', async function (req, res) {
 	}
 });
 
-app.listen(port,() => {
-	console.log("Server started on PORT " + port);
+app.listen(3001,() => {
+	console.log("Server started on PORT 3001");
 })
+
+module.exports = app;
