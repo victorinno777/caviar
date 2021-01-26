@@ -124,5 +124,8 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 		res.end(e.message || e.toString());
 	}
 });*/
-setTimeout(10000, function(){module.exports = router;});
+function send() {
+	module.exports = router;
+}
+setTimeout(10000, function(){send()});
 
