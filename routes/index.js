@@ -98,16 +98,16 @@ var corsOptions = {
 	}
 }, 5000));*/
 
-/*app.post('/fetch', cors(corsOptions), async function (req, res) {
+router.post('/fetch', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
-		res.setTimeout(5000, function(){res.json(typeof(result));});
+		res.json(typeof(result));
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
-});*/
+});
 
-router.get('/', cors(corsOptions), async function (req, res) {
+/*router.get('/', cors(corsOptions), async function (req, res) {
 	try {
 		const result = await getData();
 		res.json(typeof(result));
@@ -123,6 +123,6 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
-});
+});*/
+setTimeout(10000, function(){module.exports = router;});
 
-module.exports = router
