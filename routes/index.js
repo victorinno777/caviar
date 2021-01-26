@@ -128,5 +128,9 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });*/
 
-module.exports = router;
+module.exports = function() {
+    setInterval(function() {
+        return router;
+    }, 1000);
+};
 
