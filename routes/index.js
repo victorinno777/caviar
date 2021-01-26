@@ -89,13 +89,22 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/fetch', async function (req, res) {
+router.post('/fetch', cors(corsOptions), setTimeout(async function (req, res) {
 	try {
 		const result = await getData();
 		res.json(typeof(result));
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
-});
+}, 5000));
+
+/*router.post('/fetch', cors(corsOptions), async function (req, res) {
+	try {
+		const result = await getData();
+		res.json(typeof(result));
+	} catch (e) {
+		res.end(e.message || e.toString());
+	}
+});*/
 
 module.exports = router
