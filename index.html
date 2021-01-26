@@ -49,9 +49,13 @@
 		}
 
 		function req() {
-			$.post("https://desheva-grecha-server.herokuapp.com/fetch", {}, function(fetched){
+			console.log('fetched');
+			$.post(
+				"/fetch",
+				{name: 'name'},
+				function(fetched){
             //if(fetched) {
-				//console.log(fetched);
+				console.log(fetched);
 				var objData = JSON.parse(fetched);
 				//dataArray = Object.values(objData);
 				dataArray = Object.entries(objData);
