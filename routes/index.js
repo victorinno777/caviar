@@ -92,7 +92,7 @@ router.get('/', function(req, res, next) {
 router.post('/fetch', async function (req, res) {
 	try {
 		const result = await getData();
-		res.json(result);
+		res.json(typeof(result));
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
