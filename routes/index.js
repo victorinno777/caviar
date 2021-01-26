@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const router = express.Router();
+//const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
-const asyncRouter = require('async-express-router');
+//const asyncRouter = require('async-express-router');
+const AsyncRouter = require('express-async-router').AsyncRouter;
+const router = AsyncRouter();
 
 async function getData() {
 
@@ -85,7 +87,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/fetch', cors(corsOptions), async function (req, res) {
+router.post('/fetch', cors(corsOptions), function (req, res) {
 	try {
 		const result = await getData();
 		//res.json(result);

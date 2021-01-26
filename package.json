@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "async-express-router": "^4.0.0",
+	"express-async-router": "^0.1.15",
 	"body-parser": "^1.19.0",
 	"cors": "^2.8.5",
 	"express": "^4.17.1",
