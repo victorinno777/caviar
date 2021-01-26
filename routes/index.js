@@ -4,7 +4,6 @@ const cors = require("cors");
 const router = express.Router();
 const app = express();
 const puppeteer = require ('puppeteer');
-//const asyncRouter = require('async-express-router');
 
 async function getData() {
 
@@ -12,9 +11,6 @@ async function getData() {
 	.launch ({
 		args: [
 			'--no-sandbox',
-			//"--single-process",
-			//"--no-zygote",
-			//'--disable-setuid-sandbox'
 		]
 	})
 	.then (async browser => {
@@ -63,10 +59,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 router.use(cors());
 app.use(cors());
-
-//asyncRouter(app);
-//const routes = require('./path/to/routes.js');
-//app.use(routes)
 
 router.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
