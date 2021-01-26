@@ -65,8 +65,8 @@ router.use(cors());
 app.use(cors());
 
 asyncRouter(app);
-const routes = require('./path/to/routes.js');
-app.use(routes)
+//const routes = require('./path/to/routes.js');
+//app.use(routes)
 
 router.use(function (req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
