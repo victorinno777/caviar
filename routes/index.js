@@ -63,8 +63,8 @@ async function getData() {
 	});
 }
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 router.use(cors());
 app.use(cors());
 
@@ -98,13 +98,11 @@ var corsOptions = {
 	}
 }, 5000));*/
 
-router.post('/fetch', cors(corsOptions), async function (req, res) {
+app.post('/fetch', cors(corsOptions), async function (req, res) {
 	
 	try {
 		const result = await getData();
-		setTimeout(() => {
-			res.json(typeof(result));
-		}, 30000)
+		res.json(typeof(result));
 	} catch (e) {
 		res.end(e.message || e.toString());
 	}
@@ -128,9 +126,5 @@ router.post('/fetch', cors(corsOptions), async function (req, res) {
 	}
 });*/
 
-module.exports = function() {
-    setInterval(function() {
-        return router;
-    }, 1000);
-};
+module.exports = app;
 
